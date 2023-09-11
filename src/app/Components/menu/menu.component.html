@@ -1,26 +1,26 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">Usuario</a>
-      <a mat-list-item href="#">Admin</a>
-      <a mat-list-item href="#">Inicio de Sesion</a>
-      <a mat-list-item href="#">Carrito de compras</a>
-      <a mat-list-item href="#">Finalización de compra</a>
-      <a mat-list-item href="#">Historial de compras</a>
-      <a mat-list-item href="#">Catalogo</a>
-      <a mat-list-item href="#">Detalle de Producto</a>
-      <a mat-list-item href="#">Opiniones y Reseñas</a>
-    </mat-nav-list>
-  </mat-sidenav>
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="(isHandset$ | async) === false">
+  <mat-toolbar>Menu</mat-toolbar>
+  <mat-nav-list>
+    <a mat-list-item href="#">Home</a>
+    <a mat-list-item href="#">Usuario</a>
+    <a mat-list-item href="#">Admin</a>
+    <a mat-list-item href="#">Inicio de Sesion</a>
+    <a mat-list-item href="/Carrito">Carrito</a>
+    <a mat-list-item href="/Finalizar_compra">Finalización de compra</a>
+    <a mat-list-item href="/Historial">Historial de compras</a>
+    <a mat-list-item href="#">Catalogo</a>
+    <a mat-list-item href="#">Detalle de Producto</a>
+    <a mat-list-item href="#">Opiniones y Reseñas</a>      
+  </mat-nav-list>
+</mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
-        type="button"
+      type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
@@ -28,7 +28,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>TiendaVirtual</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
+    </mat-toolbar> 
+
+    <router-outlet></router-outlet>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<!-- <ngx-avatars name="John Doe"></ngx-avatars> -->
