@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { AvatarModule } from 'ngx-avatars';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientModule } from '@angular/common/http';
 // Import your AvatarModule
@@ -33,6 +35,8 @@ import { HistorialComprasComponent } from './Components/historial-compras/histor
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    AvatarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
