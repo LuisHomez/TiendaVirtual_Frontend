@@ -23,6 +23,8 @@ import { HistorialComprasComponent } from './Components/historial-compras/histor
 
 
 
+import { OpinionsComponent } from './Components/opinions/opinions.component';
+import { ClientesComponent } from './Components/clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HistorialComprasComponent } from './Components/historial-compras/histor
     MenuComponent,
     CarritoComponent,
     FinalizarCompraComponent,
-    HistorialComprasComponent
+    HistorialComprasComponent,
+    ClientesComponent,
+    OpinionsComponent
   ],
   imports: [
     BrowserModule,
