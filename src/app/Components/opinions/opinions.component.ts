@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
 
+
 @Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  selector: 'app-opinions',
+  templateUrl: './opinions.component.html',
+  styleUrls: ['./opinions.component.css']
 })
-export class UsuariosComponent implements OnInit{
+export class OpinionsComponent implements OnInit{
 
   constructor(public api: RestService){
 

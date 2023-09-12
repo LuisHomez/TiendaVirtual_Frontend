@@ -13,12 +13,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AvatarModule } from 'ngx-avatars';
 import { HttpClientModule } from '@angular/common/http';
+import { OpinionsComponent } from './Components/opinions/opinions.component';
+import { ClientesComponent } from './Components/clientes/clientes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuariosComponent,
-    MenuComponent
+    MenuComponent,
+    ClientesComponent,
+    OpinionsComponent
   ],
   imports: [
     BrowserModule,
