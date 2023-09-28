@@ -35,7 +35,7 @@ export class FinalizarCompraComponent implements OnInit, AfterViewInit{
         this.dataSource.sort = this.sort;
 
         console.log(res);
-      }
+      
 
     });
   }

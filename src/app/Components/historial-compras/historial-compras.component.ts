@@ -35,7 +35,7 @@ export class HistorialComprasComponent implements OnInit, AfterViewInit{
         this.dataSource.sort = this.sort;
 
         console.log(res);
-      }
+      
 
     });
   }
