@@ -29,9 +29,9 @@ export class CarritoComponent implements OnInit, AfterViewInit {
   public get(){
     this.api.Get("Carritoes").then((res)=>{
 
-      for(let index = 0; index < res.length; index++){
-        this.loadTable([res[index]]);
-      }
+        for(let index = 0; index < res.length; index++){
+          this.loadTable([res[index]]);
+        }
 
         this.dataSource.data=res;
         this.dataSource.paginator=this.paginator;
@@ -64,4 +64,5 @@ export class CarritoComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 }

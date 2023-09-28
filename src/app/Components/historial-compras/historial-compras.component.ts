@@ -18,7 +18,7 @@ export class HistorialComprasComponent implements OnInit, AfterViewInit{
   constructor(public api:RestService){    
     this.dataSource = new MatTableDataSource();
   }
-
+  
   ngOnInit(): void{
     this.get();
   }
@@ -26,15 +26,16 @@ export class HistorialComprasComponent implements OnInit, AfterViewInit{
   public get(){
     this.api.Get("HistorialCompras").then((res)=>{
 
-      for(let index = 0; index < res.length; index++){
-        this.loadTable([res[index]]);
-      }
+        for(let index = 0; index < res.length; index++){
+          this.loadTable([res[index]]);
+        }
 
         this.dataSource.data=res;
         this.dataSource.paginator=this.paginator;
         this.dataSource.sort = this.sort;
 
         console.log(res);
+      }
 
     });
   }
