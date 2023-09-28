@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SesionComponent } from './Components/sesion/sesion.component';
 import { CatalogoComponent } from './Components/catalogo/catalogo.component';
 import { ProductoComponent } from './Components/producto/producto.component';
+import { MatSortModule} from '@angular/material/sort';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { ProductoComponent } from './Components/producto/producto.component';
     ProductoComponent
   ],
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     HttpClientModule,
     AvatarModule,
@@ -36,7 +42,10 @@ import { ProductoComponent } from './Components/producto/producto.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
