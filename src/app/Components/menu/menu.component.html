@@ -4,15 +4,14 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
-    
     <mat-nav-list>
       <a mat-list-item href="#">Home</a>
       <a mat-list-item href="/Usuarios">Usuario</a>
       <a mat-list-item href="/Clientes">Clientes</a>
       <a mat-list-item href="#">Inicio de Sesion</a>
-      <a mat-list-item href="#">Carrito de compras</a>
-      <a mat-list-item href="#">Finalización de compra</a>
-      <a mat-list-item href="#">Historial de compras</a>
+      <a mat-list-item href="/Carritoes">Carrito de Compras</a>
+      <a mat-list-item href="/MetodoPagoes">Finalización de Compra</a>
+      <a mat-list-item href="/HistorialCompras">Historial de Compras</a>
       <a mat-list-item href="#">Catalogo</a>
       <a mat-list-item href="#">Detalle de Producto</a>
       <a mat-list-item href="/Opinions">Opiniones y Reseñas</a>
@@ -30,8 +29,6 @@
       </button>
       <span>TiendaVirtual</span>
       <div class="avatar-container">
-        <ngx-avatars name="Jony Martinez"></ngx-avatars>
-        <ngx-avatars name="Luis Homez"></ngx-avatars>
         <ngx-avatars name="Juan Suarez"></ngx-avatars>
       </div>
       

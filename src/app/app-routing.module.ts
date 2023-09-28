@@ -5,10 +5,11 @@ import { ClientesComponent } from './Components/clientes/clientes.component';
 import { OpinionsComponent } from './Components/opinions/opinions.component';
 
 
+
 const routes: Routes = [
   {path:"Usuarios", component:UsuariosComponent},
   {path:"Clientes", component:ClientesComponent},
-  {path:"Opinions", component:OpinionsComponent}
+  {path:"Opinions", component:OpinionsComponent},
 ];
 
 @NgModule({
