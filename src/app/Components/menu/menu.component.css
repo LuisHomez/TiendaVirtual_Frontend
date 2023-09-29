@@ -1,9 +1,8 @@
 .sidenav-container {
   height: 100%;
 }
-
 .sidenav {
-  width: 200px;
+  width: 250px;
 }
 
 .sidenav .mat-toolbar {
@@ -11,7 +10,19 @@
 }
 
 .mat-toolbar.mat-primary {
+  
+  display: flex;
   position: sticky;
   top: 0;
   z-index: 1;
+
+}
+
+.avatar-container{
+
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+
 }
