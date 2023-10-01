@@ -1,0 +1,45 @@
+.mat-elevation-z8{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.filter{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+/* .mat-form-field {
+    margin-bottom: 20px;
+} */
+
+.option{
+    overflow: hidden; 
+    display: inline-block;
+    margin: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.4s; 
+    
+}
+.option #editar{
+    color: blue;
+
+}
+
+.option #borrar{
+    color: red;
+}
+
+.option:hover{
+    
+    cursor: pointer;
+    font-size: 25px;
+    
+}
+.option #editar:hover{
+    color: darkblue;
+
+}
+.option #borrar:hover{
+    color: darkred;
+}
+

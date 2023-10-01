@@ -20,6 +20,8 @@ import { MatSortModule} from '@angular/material/sort';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PedidoComponent } from './Components/pedido/pedido.component';
+import { DetallePedidoComponent } from './Components/detalle-pedido/detalle-pedido.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MenuComponent,
     SesionComponent,
     CatalogoComponent,
-    ProductoComponent
+    ProductoComponent,
+    PedidoComponent,
+    DetallePedidoComponent
   ],
   imports: [
     MatFormFieldModule,
