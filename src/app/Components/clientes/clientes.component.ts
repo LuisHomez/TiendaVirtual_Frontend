@@ -27,8 +27,6 @@ export class ClientesComponent implements OnInit, AfterViewInit{
     }
       
       this.dataSource.data=res;
-
-      console.log(res);
     })
     
   }
@@ -42,6 +40,7 @@ loadTable(data:any[]){
     for (let column in data[0]){
       this.displayedColumns.push(column)
     }
+    this.displayedColumns.push('Acciones')
   }
 }
 

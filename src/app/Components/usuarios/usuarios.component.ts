@@ -51,6 +51,7 @@ loadTable(data:any[]){
     for (let column in data[0]){
       this.displayedColumns.push(column)
     }
+    this.displayedColumns.push('Acciones')
   }
 }
 
