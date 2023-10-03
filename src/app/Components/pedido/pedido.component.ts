@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatSort, MatSortModule} from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/Services/api.service';
 @Component({
@@ -8,24 +8,24 @@ import { ApiService } from 'src/app/Services/api.service';
   templateUrl: './pedido.component.html',
   styleUrls: ['./pedido.component.css']
 })
-export class PedidoComponent implements OnInit, AfterViewInit{
+export class PedidoComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
 
-  constructor(public api:ApiService){
-    this.dataSource= new MatTableDataSource();
+  constructor(public api: ApiService) {
+    this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
-    this.api.get("Pedidoes").then((res)=>{
+    this.api.get("Pedidoes").then((res) => {
 
-      for(let index = 0; index < res.length; index++){
+      for (let index = 0; index < res.length; index++) {
         this.loadTable([res[index]])
       }
       this.dataSource.data = res
-      
+
     })
   }
   ngAfterViewInit(): void {
@@ -33,14 +33,14 @@ export class PedidoComponent implements OnInit, AfterViewInit{
     this.dataSource.sort = this.sort;
   }
 
-  loadTable(data:any[]){
-    this.displayedColumns=[];
-    if(data.length>0){
-    for(let column in data[0]){
-      this.displayedColumns.push(column)
+  loadTable(data: any[]) {
+    this.displayedColumns = [];
+    if (data.length > 0) {
+      for (let column in data[0]) {
+        this.displayedColumns.push(column)
+      }
+      this.displayedColumns.push('Acciones');
     }
-    this.displayedColumns.push('Acciones');
-  }
   }
 
   applyFilter(event: Event) {
@@ -51,5 +51,11 @@ export class PedidoComponent implements OnInit, AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
+
+  // primeraLetraMayuscula(palabra: any): any {
+
+  //   if(typeof(palabra) == String)
+  //   return palabra.charAt(0).toUpperCase() + palabra.slice(1);
+  // }
 
 }
