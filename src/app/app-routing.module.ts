@@ -20,12 +20,12 @@ const routes: Routes = [
   {path:"Usuarios", component:UsuariosComponent},
   {path:"Clientes", component:ClientesComponent},
   {path:"Opinions", component:OpinionsComponent},
-  {path: 'producto', component:ProductoComponent},
-  {path: 'catalogo', component: CatalogoComponent },
-  {path: 'sesion', component: SesionComponent },
-  { path: 'usuarios', component: UsuariosComponent },
-  { path: 'pedido', component: PedidoComponent },
-  { path: 'detallePedido', component: DetallePedidoComponent },
+  {path:"producto", component:ProductoComponent},
+  {path:"catalogo", component:CatalogoComponent},
+  {path:"sesion", component:SesionComponent},
+  {path:"usuarios", component:UsuariosComponent},
+  {path:"pedido", component:PedidoComponent},
+  {path:"detallePedido",component:DetallePedidoComponent},
 ];
 
 @NgModule({

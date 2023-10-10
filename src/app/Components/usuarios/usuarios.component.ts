@@ -1,40 +1,19 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { RestService } from 'src/app/services/rest.service';
-
-
-=======
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { RestService } from 'src/app/services/rest.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApiService } from 'src/app/Services/api.service';
->>>>>>> 9fc409dda9194cbdfa997b0bdaecd911ca64eb0e
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
-<<<<<<< HEAD
-export class UsuariosComponent implements OnInit{
-
-  constructor(public api: RestService){
-
-  }
-  ngOnInit(): void{
-    this.get();
-  }
-
-public get(){
-  this.api.Get("Usuarios");
-}
-=======
 export class UsuariosComponent implements OnInit, AfterViewInit{
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
-
 
   constructor(public api:ApiService){
     this.dataSource= new MatTableDataSource();
@@ -71,6 +50,5 @@ export class UsuariosComponent implements OnInit, AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
->>>>>>> 9fc409dda9194cbdfa997b0bdaecd911ca64eb0e
 
 }

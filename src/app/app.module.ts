@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
@@ -19,14 +18,15 @@ import { HistorialComprasComponent } from './Components/historial-compras/histor
 import { OpinionsComponent } from './Components/opinions/opinions.component';
 import { ClientesComponent } from './Components/clientes/clientes.component';
 import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { SesionComponent } from './Components/sesion/sesion.component';
 import { CatalogoComponent } from './Components/catalogo/catalogo.component';
 import { ProductoComponent } from './Components/producto/producto.component'
 import { PedidoComponent } from './Components/pedido/pedido.component';
 import { DetallePedidoComponent } from './Components/detalle-pedido/detalle-pedido.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -38,19 +38,19 @@ import { DetallePedidoComponent } from './Components/detalle-pedido/detalle-pedi
     FinalizarCompraComponent,
     HistorialComprasComponent,
     ClientesComponent,
-    OpinionsComponent
-  ],
-  imports: [
-    MatTableModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSortModule,
-    MatPaginatorModule,
+    OpinionsComponent,
     SesionComponent,
     CatalogoComponent,
     ProductoComponent,
     PedidoComponent,
     DetallePedidoComponent,
+  ],
+  imports: [
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
