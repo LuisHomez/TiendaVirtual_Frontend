@@ -1,35 +1,14 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { RestService } from 'src/app/services/rest.service';
-
-
-=======
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/Services/api.service';
->>>>>>> 9fc409dda9194cbdfa997b0bdaecd911ca64eb0e
 @Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  selector: 'app-catalogo',
+  templateUrl: './catalogo.component.html',
+  styleUrls: ['./catalogo.component.css']
 })
-<<<<<<< HEAD
-export class UsuariosComponent implements OnInit{
-
-  constructor(public api: RestService){
-
-  }
-  ngOnInit(): void{
-    this.get();
-  }
-
-public get(){
-  this.api.Get("Usuarios");
-}
-=======
-export class UsuariosComponent implements OnInit, AfterViewInit{
+export class CatalogoComponent implements OnInit, AfterViewInit{
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -40,7 +19,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit{
     this.dataSource= new MatTableDataSource();
   }
   ngOnInit(): void {
-    this.api.get("Usuarios").then((res)=>{
+    this.api.get("Categoriums").then((res)=>{
 
       for(let index = 0; index < res.length; index++){
         this.loadTable([res[index]])
@@ -71,6 +50,5 @@ export class UsuariosComponent implements OnInit, AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
->>>>>>> 9fc409dda9194cbdfa997b0bdaecd911ca64eb0e
 
 }

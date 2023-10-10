@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
@@ -17,11 +18,15 @@ import { FinalizarCompraComponent } from './Components/finalizar-compra/finaliza
 import { HistorialComprasComponent } from './Components/historial-compras/historial-compras.component';
 import { OpinionsComponent } from './Components/opinions/opinions.component';
 import { ClientesComponent } from './Components/clientes/clientes.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SesionComponent } from './Components/sesion/sesion.component';
+import { CatalogoComponent } from './Components/catalogo/catalogo.component';
+import { ProductoComponent } from './Components/producto/producto.component'
+import { PedidoComponent } from './Components/pedido/pedido.component';
+import { DetallePedidoComponent } from './Components/detalle-pedido/detalle-pedido.component';
 
 
 @NgModule({
@@ -41,9 +46,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule,
     MatSortModule,
     MatPaginatorModule,
+    SesionComponent,
+    CatalogoComponent,
+    ProductoComponent,
+    PedidoComponent,
+    DetallePedidoComponent,
     BrowserModule,
     HttpClientModule,
-    AvatarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -52,7 +61,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatListModule,
     AvatarModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
