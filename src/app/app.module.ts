@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   ],
   imports: [
     MatTableModule,
+    MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
     MatPaginatorModule,

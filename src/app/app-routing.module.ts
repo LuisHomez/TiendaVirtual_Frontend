@@ -13,6 +13,7 @@ import { PedidoComponent } from './Components/pedido/pedido.component';
 import { DetallePedidoComponent } from './Components/detalle-pedido/detalle-pedido.component';
 
 
+
 const routes: Routes = [
   {path:"Carrito", component:CarritoComponent},
   {path:"Finalizar_compra", component:FinalizarCompraComponent},
