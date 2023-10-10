@@ -1,8 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
@@ -12,40 +10,41 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
-export class CarritoComponent implements OnInit, AfterViewInit {  
-  
+export class CarritoComponent implements OnInit, AfterViewInit {
+
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
-  constructor(public api:RestService){    
+  constructor(public api: RestService) {
     this.dataSource = new MatTableDataSource();
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.get();
   }
 
-  public get(){
-    this.api.Get("Carritoes").then((res)=>{
+  public get() {
 
-        for(let index = 0; index < res.length; index++){
-          this.loadTable([res[index]]);
-        }
+    this.api.Get("Carritoes").then((res) => {
 
-        this.dataSource.data=res;
-        this.dataSource.paginator=this.paginator;
-        this.dataSource.sort = this.sort;
+      for (let index = 0; index < res.length; index++) {
+        this.loadTable([res[index]]);
+      }
 
-        console.log(res);
+      this.dataSource.data = res;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
+      console.log(res);
 
     });
   }
 
-  loadTable(data:any[]){
+  loadTable(data: any[]) {
     this.displayedColumns = [];
-    if (data.length>0){
-      for(let column in data[0]){
+    if (data.length > 0) {
+      for (let column in data[0]) {
         this.displayedColumns.push(column);
       }
       this.displayedColumns.push("Acciones");
@@ -57,11 +56,11 @@ export class CarritoComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(event:Event){
+  applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
-    if(this.dataSource.paginator){
+    if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
