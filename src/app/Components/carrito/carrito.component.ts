@@ -15,8 +15,8 @@ import { MatSort } from '@angular/material/sort';
 export class CarritoComponent implements OnInit, AfterViewInit {  
   
   displayedColumns: string[] = [];
-  @ViewChild(MatPaginator) paginator : MatPaginator;
-  @ViewChild(MatSort) sort : MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
   constructor(public api:RestService){    
     this.dataSource = new MatTableDataSource();

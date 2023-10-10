@@ -12,8 +12,8 @@ import { RestService } from 'src/app/services/rest.service';
 export class FinalizarCompraComponent implements OnInit, AfterViewInit{
 
   displayedColumns: string[] = [];
-  @ViewChild(MatPaginator) paginator : MatPaginator;
-  @ViewChild(MatSort) sort : MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
   constructor(public api:RestService){    
     this.dataSource = new MatTableDataSource();
