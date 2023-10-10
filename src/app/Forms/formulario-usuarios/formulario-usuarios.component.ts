@@ -16,8 +16,6 @@ export class FormularioUsuariosComponent {
   
   constructor(private fb: FormBuilder) {}
 
-
-
   onSubmit(): void{
     Swal.fire(
       'Good job!',
