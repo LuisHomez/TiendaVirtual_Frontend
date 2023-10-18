@@ -13,6 +13,8 @@ import { PedidoComponent } from './Components/pedido/pedido.component';
 import { DetallePedidoComponent } from './Components/detalle-pedido/detalle-pedido.component';
 import { FormularioUsuariosComponent } from './Forms/formulario-usuarios/formulario-usuarios.component';
 import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar-compra.component';
+import { FormularioClientesComponent } from './Forms/formulario-clientes/formulario-clientes.component';
+import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formulario-opinions.component';
 
 
 
@@ -31,6 +33,8 @@ const routes: Routes = [
   {path:"detallePedido",component:DetallePedidoComponent},
   {path:"FormUsuarios", component:FormularioUsuariosComponent},
   {path:"FormFinalizarCompra", component:FormFinalizarCompraComponent},
+  {path:"FormClientes", component:FormularioClientesComponent},
+  {path:"FormOpinions", component:FormularioOpinionsComponent},
 ];
 
 @NgModule({

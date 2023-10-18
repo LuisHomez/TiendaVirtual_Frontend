@@ -2,7 +2,7 @@
 <div class="filter">
 <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Juan" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Excelente Producto" #input>
 </mat-form-field>
 </div>
   
@@ -30,6 +30,11 @@
             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
         </tr>
     </table>
-  
+
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+    
+
   </div>
+  
+  <button mat-raised-button color="primary" (click)="openDialog()">Agregar Opinion</button>

@@ -33,6 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar-compra.component';
+import { FormularioClientesComponent } from './Forms/formulario-clientes/formulario-clientes.component';
+import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formulario-opinions.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar
     PedidoComponent,
     DetallePedidoComponent,
     FormularioUsuariosComponent,
+    FormularioClientesComponent,
+    FormularioOpinionsComponent,
     
   ],
   imports: [
