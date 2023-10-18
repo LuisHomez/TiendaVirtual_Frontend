@@ -28,6 +28,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { FormularioUsuariosComponent } from './Forms/formulario-usuarios/formulario-usuarios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -45,6 +49,8 @@ import { MatSelectModule } from '@angular/material/select';
     ProductoComponent,
     PedidoComponent,
     DetallePedidoComponent,
+    FormularioUsuariosComponent,
+    
   ],
   imports: [
     MatTableModule,
@@ -63,6 +69,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatListModule,
     AvatarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatDialogModule,
+       
   ],
   providers: [],
   bootstrap: [AppComponent]

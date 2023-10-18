@@ -4,6 +4,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { FormularioUsuariosComponent } from 'src/app/Forms/formulario-usuarios/formulario-usuarios.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -16,9 +18,17 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api: ApiService) {
+  constructor(public api: ApiService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
+  openDialog() {
+    const dialogRef = this.dialog.open(FormularioUsuariosComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   ngOnInit(): void {
     this.api.get("Usuarios").then((res) => {
 
