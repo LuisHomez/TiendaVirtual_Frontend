@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormularioproductoComponent } from 'src/app/Forms/formularioproducto/formularioproducto.component';
 import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-producto',
@@ -15,8 +17,15 @@ export class ProductoComponent implements OnInit, AfterViewInit{
   dataSource: MatTableDataSource<any>;
 
 
-  constructor(public api:ApiService){
+  constructor(public api:ApiService, public dialog: MatDialog){
     this.dataSource= new MatTableDataSource();
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(FormularioproductoComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   ngOnInit(): void {
     this.api.get("Productoes").then((res)=>{
@@ -34,13 +43,14 @@ export class ProductoComponent implements OnInit, AfterViewInit{
   }
 
   loadTable(data:any[]){
-    this.displayedColumns=[];
-    if(data.length>0){
-    for(let column in data[0]){
-      this.displayedColumns.push(column)
+    this.displayedColumns = [];
+    if (data.length > 0) {
+      for (let column in data[0]) {
+        this.displayedColumns.push(column)
+      }
+      this.displayedColumns.push('Acciones')
     }
   }
-}
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

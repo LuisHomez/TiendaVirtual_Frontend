@@ -32,6 +32,9 @@ import { FormularioUsuariosComponent } from './Forms/formulario-usuarios/formula
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormulariocategoriaComponent } from './Forms/formulariocategoria/formulariocategoria.component';
+import { FormularioproductoComponent } from './Forms/formularioproducto/formularioproducto.component';
+import { FormulariopedidoComponent } from './Forms/formulariopedido/formulariopedido.component';
 
 
 @NgModule({
@@ -50,6 +53,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     PedidoComponent,
     DetallePedidoComponent,
     FormularioUsuariosComponent,
+    FormulariocategoriaComponent,
+    FormularioproductoComponent,
+    FormulariopedidoComponent,
     
   ],
   imports: [
