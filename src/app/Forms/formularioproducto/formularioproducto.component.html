@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-card class="shipping-card">
+        <mat-card-header>
+            <mat-card-title>Insertar nuevo prodcuto</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre">
+                        <mat-error *ngIf="form.controls['nombre'].hasError('required')">
+                            El nombre del producto es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Categoria</mat-label>
+                        <input matInput formControlName="categoria">
+                        <mat-error *ngIf="form.controls['categoria'].hasError('required')">
+                            La categoria del producto es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" class="full-width">
+                        <mat-label>Digite el precio del producto</mat-label>
+                        <input matInput class="example-right-align" placeholder="0" formControlName="precio">
+                        <span matTextPrefix>$&nbsp;</span>
+                        <span matTextSuffix>.00</span>
+                        <mat-error *ngIf="form.controls['precio'].hasError('required')">
+                            El precio del producto es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions class="">
+
+            <button mat-raised-button class="btn" (click)="close()">Cerrar</button>
+
+            <button mat-raised-button color="primary" type="submit" class="btn"
+                [disabled]="form.invalid">Insertar</button>
+            
+        </mat-card-actions>
+    </mat-card>
+</form>
