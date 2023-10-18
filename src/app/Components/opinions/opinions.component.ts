@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { FormularioOpinionsComponent } from 'src/app/Forms/formulario-opinions/formulario-opinions.component';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -16,8 +18,16 @@ export class OpinionsComponent implements OnInit, AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api:ApiService){
+  constructor(public api:ApiService, public dialog: MatDialog){
   this.dataSource= new MatTableDataSource();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(FormularioOpinionsComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   ngOnInit(): void{
     this.api.get("Opinions").then((res)=>{

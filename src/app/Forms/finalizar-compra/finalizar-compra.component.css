@@ -1,0 +1,39 @@
+/* Estilos para el formulario */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para las tarjetas */
+  .shipping-card {
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  /* Estilos para los campos de formulario */
+  .full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los botones */
+  .btn {
+    margin-right: 10px;
+  }
+  
+  /* Estilos para los mensajes de error */
+  .mat-error {
+    color: red;
+    font-size: 14px;
+  }
+  
+  /* Estilos para el título de la tarjeta */
+  .mat-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
