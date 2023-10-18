@@ -32,6 +32,7 @@ import { FormularioUsuariosComponent } from './Forms/formulario-usuarios/formula
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar-compra.component';
 
 
 @NgModule({
@@ -73,7 +74,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ReactiveFormsModule,
     MatCardModule,
     MatDialogModule,
-       
+    FormFinalizarCompraComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

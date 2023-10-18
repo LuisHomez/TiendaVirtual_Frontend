@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { DialogAnimationsExampleDialog } from 'src/app/Forms/finalizar-compra/finalizar-compra.component';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -15,12 +17,21 @@ export class FinalizarCompraComponent implements OnInit, AfterViewInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
-  constructor(public api:RestService){    
+  
+  constructor(public api:RestService, public dialog: MatDialog){    
     this.dataSource = new MatTableDataSource();
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.get();
+  }
+  
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogAnimationsExampleDialog, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
   public get(){
