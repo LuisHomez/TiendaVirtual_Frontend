@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { FormularioClientesComponent } from 'src/app/Forms/formulario-clientes/formulario-clientes.component';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -16,8 +18,16 @@ export class ClientesComponent implements OnInit, AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api:ApiService){
+  constructor(public api:ApiService, public dialog: MatDialog){
   this.dataSource= new MatTableDataSource();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(FormularioClientesComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   ngOnInit(): void{
     this.api.get("Clientes").then((res)=>{
@@ -53,26 +63,3 @@ applyFilter(event: Event) {
   }
 }
 }
-
-// import { Component, OnInit} from '@angular/core';
-// import { RestService } from 'src/app/services/rest.service';
-
-// @Component({
-//   selector: 'app-clientes',
-//   templateUrl: './clientes.component.html',
-//   styleUrls: ['./clientes.component.css']
-// })
-// export class ClientesComponent implements OnInit{
-
-//   constructor(public api: RestService){
-
-//   }
-//   ngOnInit(): void{
-//     this.get();
-//   }
-
-// public get(){
-//   this.api.Get("Clientes");
-// }
-
-// }
