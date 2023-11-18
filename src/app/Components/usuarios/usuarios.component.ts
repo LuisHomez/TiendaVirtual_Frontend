@@ -5,13 +5,14 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
 import { FormularioUsuariosComponent } from 'src/app/Forms/formulario-usuarios/formulario-usuarios.component';
 import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
-
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
+  
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -40,14 +41,6 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
       console.log(res);
     })
 
-    // const usuario = {
-    //   nombreUsuario: "Juan Suarez",
-    //   contraseña: "123abc",
-    //   rol: "Admin"
-    // }
-    // this.post("https://localhost:7199/api/Usuarios" ,usuario);
-    // this.put();
-    // this.delete();
   }
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -71,20 +64,5 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // public get(){
-  //   this.api.Get("Usuarios");
-  // }
-
-  // public put(){
-  //   this.api.Put("Usuarios", "usuarioId","")
-  // }
-
-  // public post(controller: string, body: any){
-  //   this.api.Post(controller, body)
-  // }
-
-  // public delete(){
-  //   this.api.Post("Usuarios", "usuarioId")
-  // }
 
 }

@@ -3,7 +3,9 @@ import { RestService } from 'src/app/services/rest.service';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
+import { ApiService } from 'src/app/services/api.service';
+import { FormularioUsuariosComponent } from 'src/app/Forms/formulario-usuarios/formulario-usuarios.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-carrito',
@@ -16,7 +18,8 @@ export class CarritoComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
-  constructor(public api: RestService) {
+
+  constructor(public api: RestService, public dialog:MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -33,8 +36,8 @@ export class CarritoComponent implements OnInit, AfterViewInit {
       }
 
       this.dataSource.data = res;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      // this.dataSource.paginator = this.paginator;
+      // this.dataSource.sort = this.sort;
 
       console.log(res);
 
@@ -49,6 +52,7 @@ export class CarritoComponent implements OnInit, AfterViewInit {
       }
       this.displayedColumns.push("Acciones");
     }
+    console.log("Columnas cargadas "+this.displayedColumns)
   }
 
   ngAfterViewInit(): void {
