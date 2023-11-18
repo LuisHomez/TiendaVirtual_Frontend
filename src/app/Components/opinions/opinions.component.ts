@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatColumnDef, MatTableDataSource} from '@angular/material/table';
 import { FormularioOpinionsComponent } from 'src/app/Forms/formulario-opinions/formulario-opinions.component';
 import { ApiService } from 'src/app/services/api.service';
+import { RestService } from 'src/app/services/rest.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-opinions',
@@ -18,7 +20,7 @@ export class OpinionsComponent implements OnInit, AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api:ApiService, public dialog: MatDialog){
+  constructor(public api:RestService, public dialog: MatDialog){
   this.dataSource= new MatTableDataSource();
   }
 
@@ -30,7 +32,7 @@ export class OpinionsComponent implements OnInit, AfterViewInit{
     });
   }
   ngOnInit(): void{
-    this.api.get("Opinions").then((res)=>{
+    this.api.Get("Opinions").then((res)=>{
 
     for (let index = 0; index < res.length; index++){
         this.loadTable([res[index]])
@@ -63,6 +65,27 @@ applyFilter(event: Event) {
   if (this.dataSource.paginator) {
     this.dataSource.paginator.firstPage();
   }
+}
+
+borrar(usuario:any){
+
+  Swal.fire({
+    title: '¿Esta seguro de eliminar esta categoría?',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Si',
+    denyButtonText: `No`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      this.api.Delete("Opinions", usuario.opinionId);      
+      Swal.fire('La categoría fue eliminada', '', 'success')
+      this.ngOnInit();
+    } else if (result.isDenied) {
+      Swal.fire('No se realizaron cambios', '', 'info')
+    }
+  })
+
 }
 }
 

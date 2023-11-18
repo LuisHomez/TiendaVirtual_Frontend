@@ -5,6 +5,8 @@ import { MatSort, MatSortModule} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormulariocategoriaComponent } from 'src/app/Forms/formulariocategoria/formulariocategoria.component';
 import { ApiService } from 'src/app/services/api.service';
+import { RestService } from 'src/app/services/rest.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
@@ -17,7 +19,7 @@ export class CatalogoComponent implements OnInit, AfterViewInit{
   dataSource: MatTableDataSource<any>;
 
 
-  constructor(public api:ApiService, public dialog: MatDialog){
+  constructor(public api:RestService, public dialog: MatDialog){
     this.dataSource= new MatTableDataSource();
   }
   openDialog() {
@@ -28,7 +30,7 @@ export class CatalogoComponent implements OnInit, AfterViewInit{
     });
   }
   ngOnInit(): void {
-    this.api.get("Categoriums").then((res)=>{
+    this.api.Get("Categoriums").then((res)=>{
 
       for(let index = 0; index < res.length; index++){
         this.loadTable([res[index]])
@@ -60,5 +62,7 @@ export class CatalogoComponent implements OnInit, AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
+
+ 
 
 }
