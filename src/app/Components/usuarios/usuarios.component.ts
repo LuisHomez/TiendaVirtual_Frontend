@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
 import { FormularioUsuariosComponent } from 'src/app/Forms/formulario-usuarios/formulario-usuarios.component';
 import { MatDialog } from '@angular/material/dialog';
+import { RestService } from 'src/app/services/rest.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -18,7 +20,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api: ApiService, public dialog: MatDialog) {
+  constructor(public api: RestService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
   openDialog() {
@@ -30,7 +32,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.api.get("Usuarios").then((res) => {
+    this.api.Get("Usuarios").then((res) => {
 
       for (let index = 0; index < res.length; index++) {
         this.loadTable([res[index]])
@@ -64,5 +66,33 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  borrar(usuario:any){
+
+    Swal.fire({
+      title: '¿Esta seguro de eliminar este registro?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.api.Delete("Usuarios", usuario.usuarioId);      
+        Swal.fire('Registro eliminado', '', 'success')
+        this.ngOnInit();
+      } else if (result.isDenied) {
+        Swal.fire('No se realizaron cambios', '', 'info')
+      }
+    })
+
+  }
+
+  editar(usuario:any){
+    console.log(usuario.nombreUsuario);
+    
+
+  }
+
 
 }

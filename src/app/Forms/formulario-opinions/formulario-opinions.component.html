@@ -38,10 +38,10 @@
 
         <mat-card-actions class="">
 
-            <button mat-raised-button class="btn" (click)="close()">Cerrar</button>
+            <button mat-raised-button class="btn" (click)="close()">Cancelar</button>
 
             <button mat-raised-button color="primary" type="submit" class="btn"
-                [disabled]="form.invalid">Insertar</button>
+                [disabled]="form.invalid">{{title}}</button>
             
         </mat-card-actions>
     </mat-card>
