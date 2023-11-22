@@ -15,6 +15,8 @@ import { FormularioUsuariosComponent } from './Forms/formulario-usuarios/formula
 import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar-compra.component';
 import { FormularioClientesComponent } from './Forms/formulario-clientes/formulario-clientes.component';
 import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formulario-opinions.component';
+import { AppComponent } from './app.component';
+import { FormLoginComponent } from './Forms/form-login/form-login.component';
 
 
 
@@ -35,6 +37,8 @@ const routes: Routes = [
   {path:"FormFinalizarCompra", component:FormFinalizarCompraComponent},
   {path:"FormClientes", component:FormularioClientesComponent},
   {path:"FormOpinions", component:FormularioOpinionsComponent},
+  {path:"Login", component:FormLoginComponent},
+  
 ];
 
 @NgModule({

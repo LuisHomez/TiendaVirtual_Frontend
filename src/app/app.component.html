@@ -1,1 +1,8 @@
-<app-menu></app-menu>
+<div *ngIf="!validatorLogin">
+    <app-form-login></app-form-login>
+    <p>Validator es falso</p>
+</div>
+<div *ngIf="validatorLogin">
+    <app-menu></app-menu>
+    <p>Validator es verdadero</p>
+</div>

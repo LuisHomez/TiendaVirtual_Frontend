@@ -38,6 +38,7 @@ import { FormulariopedidoComponent } from './Forms/formulariopedido/formulariope
 import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar-compra.component';
 import { FormularioClientesComponent } from './Forms/formulario-clientes/formulario-clientes.component';
 import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formulario-opinions.component';
+import { FormLoginComponent } from './Forms/form-login/form-login.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formula
     FormulariopedidoComponent,
     FormularioClientesComponent,
     FormularioOpinionsComponent,
+    FormLoginComponent,
     
   ],
   imports: [
