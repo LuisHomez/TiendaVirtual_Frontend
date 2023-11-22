@@ -1,9 +1,45 @@
-.example-form {
+.container{
+  height: 100%;
+  width: 100%;
+  margin:auto;
+  background-color: rgba(255, 255, 255, 0.525);
+  position:absolute;
+  display: flex;
+  align-items: center;
+}
+
+.example-form {    
+    margin: auto;    
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 50px;
+    background-color: white;
+    border: 10px;
+    border-color: black;
+    vertical-align: middle;
     min-width: 150px;
-    max-width: 500px;
+    max-width: 400px;
     width: 100%;
   }
   
   .example-full-width {
-    width: 100%;
+    width: 100%;  
   }
+
+  .register{
+    float: right;
+  }
+
+  mat-icon{
+    color: rgb(99, 99, 139);
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  button{
+    float: right;
+  }
+
+  
