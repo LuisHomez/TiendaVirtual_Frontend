@@ -18,6 +18,15 @@ public async Get (controller: string){
   return response;
 }
 
+public async getLogin (controller: string, user:string, pass:string){
+  var response:any;
+  await this.api.get(this.Url+controller+"/"+user+","+pass).toPromise().then((res)=>{
+    console.log(res);
+    response = res;
+  });
+  return response;
+}
+
 async Post(controlador:string, body:any){
   var response:any
    await this.api.post(controlador,body).subscribe(res=>{

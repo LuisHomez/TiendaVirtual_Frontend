@@ -1,0 +1,6 @@
+<button mat-button [matMenuTriggerFor]="menu">
+    <ngx-avatars name="User Name"></ngx-avatars>
+</button>
+<mat-menu #menu="matMenu">
+    <button (click)="logOut()" mat-menu-item><mat-icon>close</mat-icon>Cerrar sesión</button>    
+</mat-menu>

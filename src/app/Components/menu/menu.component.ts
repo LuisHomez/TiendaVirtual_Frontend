@@ -10,10 +10,11 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class MenuComponent {
   private breakpointObserver = inject(BreakpointObserver);
-
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Web)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+
 }

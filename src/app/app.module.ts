@@ -39,7 +39,8 @@ import { FormFinalizarCompraComponent } from './Forms/finalizar-compra/finalizar
 import { FormularioClientesComponent } from './Forms/formulario-clientes/formulario-clientes.component';
 import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formulario-opinions.component';
 import { FormLoginComponent } from './Forms/form-login/form-login.component';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { LogoutComponent } from './Components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { FormLoginComponent } from './Forms/form-login/form-login.component';
     FormularioClientesComponent,
     FormularioOpinionsComponent,
     FormLoginComponent,
+    LogoutComponent,
     
   ],
   imports: [
@@ -87,6 +89,8 @@ import { FormLoginComponent } from './Forms/form-login/form-login.component';
     MatCardModule,
     MatDialogModule,
     FormFinalizarCompraComponent,
+    MatMenuModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

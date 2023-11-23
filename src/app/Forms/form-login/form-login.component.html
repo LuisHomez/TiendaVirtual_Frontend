@@ -1,6 +1,7 @@
 
 <div class="container">
-  <form (ngSubmit)="onSubmit()" class="example-form">
+  <!-- <form (ngSubmit)="onSubmit()" class="example-form"> -->
+  <form class="example-form">
 
       <div class="display-6">
         <h1>Iniciar sesión</h1>
@@ -8,13 +9,13 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Usuario</mat-label>
-        <input type="tel" matInput>
+        <input type="tel" matInput [(ngModel)]="user" name="user">
         <mat-icon matSuffix>perm_identity</mat-icon>
       </mat-form-field>
     
       <mat-form-field class="example-full-width">
         <mat-label>Contraseña</mat-label>
-        <input type="password" matInput>
+        <input type="password" matInput [(ngModel)]="pass" name="pass">
         <mat-icon matSuffix>vpn_key</mat-icon>
       </mat-form-field>
 
@@ -24,7 +25,7 @@
         
       </div>
       <br>      
-      <button type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+      <button type="submit" (click)="onSubmit(user, pass)" mat-raised-button color="primary">Iniciar sesión</button>
 
   </form>
 </div>
