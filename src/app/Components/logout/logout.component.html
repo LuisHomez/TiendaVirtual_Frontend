@@ -1,5 +1,5 @@
-<button mat-button [matMenuTriggerFor]="menu">
-    <ngx-avatars name="User Name"></ngx-avatars>
+<button class="log-out-button mat-menu-trigger" mat-button [matMenuTriggerFor]="menu">
+    <ngx-avatars name={{nombreUsuario}}></ngx-avatars>
 </button>
 <mat-menu #menu="matMenu">
     <button (click)="logOut()" mat-menu-item><mat-icon>close</mat-icon>Cerrar sesión</button>    

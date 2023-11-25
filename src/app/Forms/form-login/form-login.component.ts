@@ -17,9 +17,11 @@ import { RestService } from 'src/app/services/rest.service';
    async onSubmit(user:string, pass:string){      
       var val:any;
       val = await this.api.getLogin("Usuarios",user,pass);
+      ;
       if(val && val.length > 0){
-        console.log("val es diferente de null");
-        console.log(val[0]);
+        var u:any;
+        u = val;
+        this.login.setUserLogin(u);
         this.login.setValidatorLogin(true);
       }else{
         console.log("val no entra en la condición");
