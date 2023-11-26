@@ -6,9 +6,9 @@
         correoElectronico:string;
         nombres:string;
         apellidos:string;
-        estado:string;
+        estado:boolean;
 
-        constructor(usuarioId: number, nombreUsuario: string, contraseña: string, rol: string, correoElectronico: string, nombres: string, apellidos: string, estado: string) {
+        constructor(usuarioId: number, nombreUsuario: string, contraseña: string, rol: string, correoElectronico: string, nombres: string, apellidos: string, estado: boolean) {
             this.usuarioId = usuarioId;
             this.nombreUsuario = nombreUsuario;
             this.contraseña = contraseña;

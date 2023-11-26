@@ -41,6 +41,8 @@ import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formula
 import { FormLoginComponent } from './Forms/form-login/form-login.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LogoutComponent } from './Components/logout/logout.component';
+import { FormRegistroComponent } from './Forms/form-registro/form-registro.component';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { LogoutComponent } from './Components/logout/logout.component';
     FormularioOpinionsComponent,
     FormLoginComponent,
     LogoutComponent,
+    FormRegistroComponent,
     
   ],
   imports: [

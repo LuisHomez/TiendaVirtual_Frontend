@@ -27,14 +27,27 @@ public async getLogin (controller: string, user:string, pass:string){
   return response;
 }
 
-async Post(controlador:string, body:any){
-  var response:any
-   await this.api.post(controlador,body).subscribe(res=>{
-      response=res
-   }
-   );
-    return response
+// async Post(controlador:string, body:any){
+//   var response:any  
+//    await this.api.post(this.Url+controlador,body).subscribe(res=>{
+//       response=res
+//    }
+//    );
+//     return response
+// }
+
+async Post(controlador: string, body: any) {
+  try {
+    const response = await this.api.post(this.Url + controlador, body).toPromise();
+    return response;
+  } catch (error) {
+    console.error("Error en la solicitud POST:", error);
+    throw error; // Puedes manejar el error según tus necesidades
+  }
 }
+
+
+
 async Put(controlador:string, id:string, body:any){
   var response:any
    await this.api.put(this.Url+controlador+"/"+id,body).subscribe(res=>{

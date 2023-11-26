@@ -17,6 +17,7 @@ import { FormularioClientesComponent } from './Forms/formulario-clientes/formula
 import { FormularioOpinionsComponent } from './Forms/formulario-opinions/formulario-opinions.component';
 import { AppComponent } from './app.component';
 import { FormLoginComponent } from './Forms/form-login/form-login.component';
+import { FormRegistroComponent } from './Forms/form-registro/form-registro.component';
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:"FormClientes", component:FormularioClientesComponent},
   {path:"FormOpinions", component:FormularioOpinionsComponent},
   {path:"Login", component:FormLoginComponent},
+  {path:"Registro", component:FormRegistroComponent},
   
 ];
 
