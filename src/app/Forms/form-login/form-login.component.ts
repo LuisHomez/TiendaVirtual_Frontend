@@ -11,6 +11,7 @@ import { RestService } from 'src/app/services/rest.service';
     
     user:string = '';
     pass:string = '';
+    registrarse:boolean;
 
     constructor(private login:LoginService, public api:RestService){}
 
@@ -27,4 +28,9 @@ import { RestService } from 'src/app/services/rest.service';
         console.log("val no entra en la condición");
       }
     }
+
+    registrarUsuario(){
+      this.login.setRegistro(true);
+    }  
+
   }

@@ -3,8 +3,12 @@
     <app-menu></app-menu>
     <p>{{validatorLogin}}</p>
 </div> -->
+<div *ngIf="!validatorLogin && !registrarse" >
     <app-form-login></app-form-login>
-
+</div>
+<div *ngIf="registrarse && !validatorLogin">
+    <app-form-registro></app-form-registro>
+</div>        
 <div *ngIf="validatorLogin">
     <app-menu></app-menu>
     <p>{{validatorLogin}}</p>

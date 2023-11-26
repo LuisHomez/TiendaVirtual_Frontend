@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioBD } from 'src/app/Models/UsuarioBD';
+import { LoginService } from 'src/app/services/login.service';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class FormRegistroComponent {
   
   result:any;
 
-  constructor(public api:RestService){}
+  constructor(public api:RestService, public login:LoginService){}
 
   onSubmit(){      
     //this.result = this.api.Post("Usuarios",element);          
@@ -29,6 +30,9 @@ export class FormRegistroComponent {
       console.log(usuarioBD);    
       var result = this.api.Post("Usuarios", usuarioBD);
       console.log(result);
+      if (result) {
+        this.login.setRegistro(false);
+      }
     }else{
       console.log("Datos erroneos:")
     }
@@ -48,5 +52,9 @@ export class FormRegistroComponent {
     }
     alert("Los correos no coinciden");
     return false;
+  }
+
+  cancel(){
+    this.login.setRegistro(false);
   }
 }
