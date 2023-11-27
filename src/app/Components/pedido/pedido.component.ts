@@ -3,6 +3,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { RestService } from 'src/app/services/rest.service';
 @Component({
   selector: 'app-detalle-pedido',
   templateUrl: './pedido.component.html',
@@ -15,11 +16,11 @@ export class PedidoComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<any>;
 
 
-  constructor(public api: ApiService) {
+  constructor(public api: RestService) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
-    this.api.get("Pedidoes").then((res) => {
+    this.api.Get("Pedidos").then((res) => {
 
       for (let index = 0; index < res.length; index++) {
         this.loadTable([res[index]])

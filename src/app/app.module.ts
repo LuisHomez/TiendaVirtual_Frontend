@@ -42,6 +42,7 @@ import { FormLoginComponent } from './Forms/form-login/form-login.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LogoutComponent } from './Components/logout/logout.component';
 import { FormRegistroComponent } from './Forms/form-registro/form-registro.component';
+import { FormRecuperarPassComponent } from './Forms/form-recuperar-pass/form-recuperar-pass.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { FormRegistroComponent } from './Forms/form-registro/form-registro.compo
     FormLoginComponent,
     LogoutComponent,
     FormRegistroComponent,
+    FormRecuperarPassComponent,
     
   ],
   imports: [

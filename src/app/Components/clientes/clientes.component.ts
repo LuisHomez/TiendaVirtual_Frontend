@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { FormularioClientesComponent } from 'src/app/Forms/formulario-clientes/formulario-clientes.component';
 import { ApiService } from 'src/app/services/api.service';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-clientes',
@@ -18,7 +19,7 @@ export class ClientesComponent implements OnInit, AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api:ApiService, public dialog: MatDialog){
+  constructor(public api:RestService, public dialog: MatDialog){
   this.dataSource= new MatTableDataSource();
   }
 
@@ -30,7 +31,7 @@ export class ClientesComponent implements OnInit, AfterViewInit{
     });
   }
   ngOnInit(): void{
-    this.api.get("Clientes").then((res)=>{
+    this.api.Get("Clientes").then((res)=>{
 
     for (let index = 0; index < res.length; index++){
         this.loadTable([res[index]])

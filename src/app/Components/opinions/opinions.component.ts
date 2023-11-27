@@ -35,7 +35,7 @@ export class OpinionsComponent implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
-    this.api.Get("Opinions").then((res) => {
+    this.api.Get("Opiniones").then((res) => {
 
       for (let index = 0; index < res.length; index++) {
         this.loadTable([res[index]])

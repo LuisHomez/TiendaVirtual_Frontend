@@ -35,7 +35,7 @@ export class FinalizarCompraComponent implements OnInit, AfterViewInit{
   }
 
   public get(){
-    this.api.Get("MetodoPagoes").then((res)=>{
+    this.api.Get("MetodosPago").then((res)=>{
 
         for(let index = 0; index < res.length; index++){
           this.loadTable([res[index]]);

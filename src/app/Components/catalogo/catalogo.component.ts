@@ -30,7 +30,7 @@ export class CatalogoComponent implements OnInit, AfterViewInit{
     });
   }
   ngOnInit(): void {
-    this.api.Get("Categoriums").then((res)=>{
+    this.api.Get("Categorias").then((res)=>{
 
       for(let index = 0; index < res.length; index++){
         this.loadTable([res[index]])

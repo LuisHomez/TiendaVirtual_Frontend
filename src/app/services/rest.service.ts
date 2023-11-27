@@ -46,8 +46,6 @@ async Post(controlador: string, body: any) {
   }
 }
 
-
-
 async Put(controlador:string, id:string, body:any){
   var response:any
    await this.api.put(this.Url+controlador+"/"+id,body).subscribe(res=>{

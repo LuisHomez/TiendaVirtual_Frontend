@@ -5,6 +5,7 @@ import { MatSort, MatSortModule} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormulariopedidoComponent } from 'src/app/Forms/formulariopedido/formulariopedido.component';
 import { ApiService } from 'src/app/services/api.service';
+import { RestService } from 'src/app/services/rest.service';
 @Component({
   selector: 'app-detalle-pedido',
   templateUrl: './detalle-pedido.component.html',
@@ -17,7 +18,7 @@ export class DetallePedidoComponent implements OnInit, AfterViewInit{
   dataSource: MatTableDataSource<any>;
 
 
-  constructor(public api:ApiService, public dialog: MatDialog){
+  constructor(public api:RestService, public dialog: MatDialog){
     this.dataSource= new MatTableDataSource();
   }
   openDialog() {
@@ -28,7 +29,7 @@ export class DetallePedidoComponent implements OnInit, AfterViewInit{
     });
   }
   ngOnInit(): void {
-    this.api.get("DetallePedidoes").then((res)=>{
+    this.api.Get("DetallePedidos").then((res)=>{
 
       for(let index = 0; index < res.length; index++){
         this.loadTable([res[index]])
