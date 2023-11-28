@@ -9,10 +9,15 @@ export class LoginService {
   
   private usuarioSubject = new BehaviorSubject<UsuarioBD | null>(null);
   usuarioLogin$ = this.usuarioSubject.asObservable();
+  
   private validatorLoginSubject = new BehaviorSubject<boolean>(false);
   validatorLogin$ = this.validatorLoginSubject.asObservable();  
+  
   private registroSubject = new BehaviorSubject<boolean>(false);
   registro$ = this.registroSubject.asObservable();
+  
+  private recuperarPassSubject = new BehaviorSubject<boolean>(false);
+  recuperarPass$ = this.recuperarPassSubject.asObservable();
 
   setValidatorLogin(value: boolean): void {
     this.validatorLoginSubject.next(value);
@@ -32,6 +37,11 @@ export class LoginService {
     console.log("soy el formulario de registro: "+this.registroSubject.value);
   }
 
+  setRecuperarPass(value:boolean):void{
+    this.recuperarPassSubject.next(value);
+    localStorage.setItem('recuperar', JSON.stringify(value));
+    console.log("soy el formulario de recuperar contraseña"+this.recuperarPassSubject.value);
+  }
 
   getValidatorLogin(): boolean {
     const storedValue = localStorage.getItem('validatorLogin');
@@ -57,15 +67,25 @@ export class LoginService {
     return this.registroSubject.value
   }
 
+  getRecuperarPass():boolean{
+    const storedValue = localStorage.getItem('recuperar');
+    if (storedValue !== null) {
+      return JSON.parse(storedValue);
+    }
+    console.log("Soy recuperar pass mi valor es: ", this.recuperarPassSubject.value);
+    return this.recuperarPassSubject.value;
+  }
 
   logout(): void {
     // Limpiar información sensible del localStorage
     localStorage.removeItem('validatorLogin');
     localStorage.removeItem('registro');
+    localStorage.removeItem('recuperar');
   
     // Setea el estado del inicio de sesión a falso
     this.setValidatorLogin(false);
     this.setRegistro(false);
+    this.setRecuperarPass(false);
   
     // Puedes realizar otras acciones según tus necesidades
     console.log('Cerrando sesión...');

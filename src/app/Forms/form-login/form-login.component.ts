@@ -12,6 +12,7 @@ import { RestService } from 'src/app/services/rest.service';
     user:string = '';
     pass:string = '';
     registrarse:boolean;
+    recuperarPassword:boolean;
 
     constructor(private login:LoginService, public api:RestService){}
 
@@ -32,5 +33,9 @@ import { RestService } from 'src/app/services/rest.service';
     registrarUsuario(){
       this.login.setRegistro(true);
     }  
+
+    recuperarPass(){
+      this.login.setRecuperarPass(true);
+    }
 
   }

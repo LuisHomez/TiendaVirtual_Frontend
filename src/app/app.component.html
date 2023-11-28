@@ -1,13 +1,11 @@
-<!-- <app-form-login></app-form-login>
-<div *ngIf="validatorLogin">
-    <app-menu></app-menu>
-    <p>{{validatorLogin}}</p>
-</div> -->
-<div *ngIf="!validatorLogin && !registrarse" >
+<div *ngIf="!validatorLogin && !registrarse && !recuperarPassword">
     <app-form-login></app-form-login>
 </div>
-<div *ngIf="registrarse && !validatorLogin">
+<div *ngIf="registrarse && !validatorLogin && !recuperarPassword">
     <app-form-registro></app-form-registro>
+</div>
+<div *ngIf="!validatorLogin && recuperarPassword && !registrarse">
+    <app-form-recuperar-pass></app-form-recuperar-pass>
 </div>        
 <div *ngIf="validatorLogin">
     <app-menu></app-menu>

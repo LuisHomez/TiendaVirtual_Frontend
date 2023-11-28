@@ -1,0 +1,43 @@
+.container{
+    height: 100%;
+    width: 100%;
+    margin:auto;
+    background-color: rgba(255, 255, 255, 0.525);
+    position:absolute;
+    display: flex;
+    align-items: center;
+  }
+  
+  .example-form {        
+      margin: auto;    
+      border: solid 1px gray;    
+      border-radius: 8px;
+      padding: 50px;
+      background-color: white;        
+      vertical-align: middle;
+      min-width: 150px;
+      max-width: 400px;
+      
+    }
+    
+    .example-full-width {
+      width: 100%;  
+    }
+  
+    .register{
+      float: right;
+    }
+  
+    mat-icon{
+      color: rgb(99, 99, 139);
+    }
+  
+    a{
+      text-decoration: none;
+    }
+  
+    button{
+      float: right;
+    }
+  
+    

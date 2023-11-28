@@ -1,6 +1,5 @@
 
 <div class="container">
-  <!-- <form (ngSubmit)="onSubmit()" class="example-form"> -->
   <form class="example-form">
 
       <div class="display-6">
@@ -20,9 +19,8 @@
       </mat-form-field>
 
       <div class="options">
-        <a class="recoveryPass" href="">Olvidé mi contraseña</a>
-        <a (click)="registrarUsuario()" class="register" href="/Registro">Registrarse</a>
-        
+        <a (click)="recuperarPass()" class="recoveryPass" href="">Olvidé mi contraseña</a>
+        <a (click)="registrarUsuario()" class="register" href="">Registrarse</a>
       </div>
       <br>      
       <button type="submit" (click)="onSubmit(user, pass)" mat-raised-button color="primary">Iniciar sesión</button>

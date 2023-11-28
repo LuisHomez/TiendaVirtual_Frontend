@@ -1,32 +1,31 @@
-<div class="container">
-    <!-- <form (ngSubmit)="onSubmit()" class="example-form"> -->
+<div class="container">    
     <form class="example-form">
   
         <div class="display-6">
-          <h1>Registro de usuario</h1>
+          <h1>Recuperar contraseña</h1>
         </div>
 
         <mat-form-field class="example-full-width">
           <mat-label>Nombre de usuario:</mat-label>
-          <!-- <input type="text" matInput [(ngModel)]="user" name="user"> -->
+          <input type="text" matInput [(ngModel)]="user" name="user">
           <mat-icon matSuffix>perm_identity</mat-icon>
         </mat-form-field>
       
         <mat-form-field class="example-full-width">
           <mat-label>Contraseña</mat-label>
-          <!-- <input type="password" matInput [(ngModel)]="pass" name="pass"> -->
+          <input type="password" matInput [(ngModel)]="pass" name="pass">
           <mat-icon matSuffix>vpn_key</mat-icon>
         </mat-form-field>
         
         <mat-form-field class="example-full-width">
           <mat-label>Confirmar contraseña</mat-label>
-          <!-- <input type="password" matInput [(ngModel)]="confirmpass" name="confirmpass"> -->
+          <input type="password" matInput [(ngModel)]="confirmpass" name="confirmpass">
           <mat-icon matSuffix>vpn_key</mat-icon>
         </mat-form-field>
                   
         <br>      
-        <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Registrar Usuario</button>
-        <button type="submit" (click)="cancel()" mat-raised-button color="primary">Cancelar</button> -->
+        <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Registrar Usuario</button>
+        <button type="submit" (click)="cancel()" mat-raised-button color="primary">Cancelar</button>
   
     </form>
   </div>
