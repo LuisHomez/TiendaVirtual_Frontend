@@ -7,6 +7,7 @@ import { FormularioUsuariosComponent } from 'src/app/Forms/formulario-usuarios/f
 import { MatDialog } from '@angular/material/dialog';
 import { RestService } from 'src/app/services/rest.service';
 import Swal from 'sweetalert2';
+import { FormsService } from 'src/app/services/forms.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -20,15 +21,17 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<any>;
 
-  constructor(public api: RestService, public dialog: MatDialog) {
+  constructor(public formService:FormsService, public api: RestService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
-  openDialog() {
+
+  nuevoRegistro(){
+    this.formService.title = "Crear Nuevo";
     const dialogRef = this.dialog.open(FormularioUsuariosComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+      console.log('Dialog result: ${result}');
+    })
   }
 
   ngOnInit(): void {
@@ -67,7 +70,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
     }
   }
 
-  borrar(usuario:any){
+  borrar(element:any){
 
     Swal.fire({
       title: '¿Esta seguro de eliminar este registro?',
@@ -78,21 +81,30 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        this.api.Delete("Usuarios", usuario.usuarioId);      
+        this.api.Delete("Usuarios", element.usuarioId);      
         Swal.fire('Registro eliminado', '', 'success')
         this.ngOnInit();
       } else if (result.isDenied) {
         Swal.fire('No se realizaron cambios', '', 'info')
       }
     })
-
+    this.ngOnInit();    
   }
 
-  editar(usuario:any){
-    console.log(usuario.nombreUsuario);
+  editar(element:any){
     
-
+    this.formService.title = "Editar";
+    this.formService.usuario = element;
+    const dialogRef = this.dialog.open(FormularioUsuariosComponent);
+    
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(FormularioUsuariosComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 }

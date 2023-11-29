@@ -58,7 +58,8 @@ export class LogoutComponent implements OnInit {
       console.log("El retorno de jason: ");
       console.log(usuarioBD);
       
-      this.nombreUsuario = usuarioBD.getNombreCompleto();
+      //this.nombreUsuario = usuarioBD.getNombreCompleto();
+      this.nombreUsuario = usuarioBD.nombres+" "+usuarioBD.apellidos;
 
 
   }

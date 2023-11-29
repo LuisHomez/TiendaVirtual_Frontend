@@ -18,18 +18,41 @@
 
                     <mat-form-field class="full-width">
                         <mat-label>Digite la contraseña</mat-label>
-                        <input matInput formControlName="contraseña">
-                        <mat-error *ngIf="form.controls['contraseña'].hasError('required')">
+                        <input type="contraseña" matInput formControlName="contrasena">
+                        <mat-error *ngIf="form.controls['contrasena'].hasError('required')">
                             Contraseña <strong>requerido</strong>
                         </mat-error>
                     </mat-form-field>
 
-
                     <mat-form-field class="full-width">
-                        <mat-label>Digite el rol</mat-label>
+                        <mat-label>Rol de usuario</mat-label>
                         <input matInput formControlName="rol">
                         <mat-error *ngIf="form.controls['rol'].hasError('required')">
                             Rol <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input type="email" matInput formControlName="correo">
+                        <mat-error *ngIf="form.controls['correo'].hasError('required')">
+                            Correo <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombres">
+                        <mat-error *ngIf="form.controls['nombres'].hasError('required')">
+                            Nombres <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput formControlName="apellidos">
+                        <mat-error *ngIf="form.controls['apellidos'].hasError('required')">
+                            Apellidos <strong>requerido</strong>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -41,7 +64,7 @@
             <button mat-raised-button class="btn" (click)="close()">Cerrar</button>
 
             <button mat-raised-button color="primary" type="submit" class="btn"
-                [disabled]="form.invalid">Insertar</button>
+                [disabled]="form.invalid">{{title}}</button>
             
         </mat-card-actions>
     </mat-card>

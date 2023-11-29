@@ -30,7 +30,7 @@ export class OpinionsComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(FormularioOpinionsComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      console.log('Dialog result: ${result}');
     });
   }
   
@@ -88,14 +88,17 @@ export class OpinionsComponent implements OnInit, AfterViewInit {
         Swal.fire('No se realizaron cambios', '', 'info')
       }
     })
-
+    this.ngOnInit();
   }
 
   editarRegistro(element:any){
     
     this.formsService.title = "Editar";
     this.formsService.opinion = element;
+    console.log("El elemento recuperado: ", element);
+    console.log("lo que quedo guardado en ", this.formsService.opinion);
     const dialogRef = this.dialog.open(FormularioOpinionsComponent);    
+    
     
   }
 }

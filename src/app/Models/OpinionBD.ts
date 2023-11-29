@@ -4,6 +4,7 @@ export class OpinionBD {
     puntuacion:number;
     comentario:string;
     fechaPublicacion:Date;
+    estado:Boolean;
     
     constructor(parameters) {}
     

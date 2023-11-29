@@ -19,8 +19,8 @@
             this.estado = estado;
           }
         
-        getNombreCompleto():string{
-            return this.nombreUsuario+" "+this.apellidos;
-        }
+        // getNombreCompleto():string{
+        //     return this.nombreUsuario+" "+this.apellidos;
+        // }
 
     }
