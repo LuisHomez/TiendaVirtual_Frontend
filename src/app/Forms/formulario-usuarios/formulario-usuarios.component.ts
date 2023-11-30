@@ -31,6 +31,7 @@ export class FormularioUsuariosComponent implements OnInit{
   
   ngOnInit(): void {
     
+    this.title = this.formService.title;
     if (this.formService.title == 'Editar') {
       this.form.setControl('nombreUsuario', new FormControl(this.formService.usuario.nombreUsuario.toString()));
       this.form.setControl('contrasena', new FormControl(this.formService.usuario.contraseña.toString()));
@@ -38,8 +39,7 @@ export class FormularioUsuariosComponent implements OnInit{
       this.form.setControl('correo', new FormControl(this.formService.usuario.correoElectronico.toString()));
       this.form.setControl('nombres', new FormControl(this.formService.usuario.nombres.toString()));
       this.form.setControl('apellidos', new FormControl(this.formService.usuario.apellidos.toString()));
-    }
-    this.title = this.formService.title;
+    }    
   }
 
   close(){
@@ -60,16 +60,38 @@ export class FormularioUsuariosComponent implements OnInit{
           estado:this.formService.usuario.estado,
         }
       
-        this.api.Put('Usuarios', String(this.formService.usuario.usuarioId), object);
-        this.dialog.closeAll();
-        this.ngOnInit();
-        
-      }
-    }
-    Swal.fire(
-      'Good job!',
-      'You clicked the button!',
-      'success'
-    )
+        this.api.Put('Usuarios', String(this.formService.usuario.usuarioId), object)
+          .then(() => {
+              this.dialog.closeAll();        
+              Swal.fire('Ok!','Se ha realizado la modificación!','success').then(()=>{
+                window.location.reload();
+              });        
+            })
+            .catch(error => {
+              console.log(error);
+            });
+      }else if(this.formService.title == 'Crear Nuevo') {
+        let object:UsuarioBD = {
+          usuarioId:0,
+          nombreUsuario:this.form.controls['nombreUsuario'].value,
+          contraseña:this.form.controls['contrasena'].value,
+          rol:this.form.controls['rol'].value,
+          correoElectronico:this.form.controls['correo'].value,
+          nombres:this.form.controls['nombres'].value,
+          apellidos:this.form.controls['apellidos'].value,
+          estado:true,
+        }
+        this.api.Post('Usuarios', object)
+          .then(() => {
+            this.dialog.closeAll();
+            Swal.fire('Ok!','Registro exitoso!','success').then(()=>{
+              window.location.reload();
+            })
+            .catch(error =>{
+              console.log(error);
+            })        
+          });
+      }    
+    }  
   }
 }

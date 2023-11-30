@@ -15,7 +15,7 @@ import { FormsService } from 'src/app/services/forms.service';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
-  
+    
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -26,7 +26,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   }
 
   nuevoRegistro(){
-    this.formService.title = "Crear Nuevo";
+    this.formService.title = "Crear Nuevo";    
     const dialogRef = this.dialog.open(FormularioUsuariosComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -34,7 +34,10 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    
+    console.log("soy ngOnInit desde usuarios: ")
+
     this.api.Get("Usuarios").then((res) => {
 
       for (let index = 0; index < res.length; index++) {
@@ -44,7 +47,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
       this.dataSource.data = res;
 
       console.log(res);
-    })
+    })    
 
   }
   ngAfterViewInit(): void {
@@ -93,18 +96,20 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
 
   editar(element:any){
     
-    this.formService.title = "Editar";
+    this.formService.title = "Editar";    
     this.formService.usuario = element;
-    const dialogRef = this.dialog.open(FormularioUsuariosComponent);
-    
+    const dialogRef = this.dialog.open(FormularioUsuariosComponent);    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });        
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(FormularioUsuariosComponent);
-
+    this.formService.title = "Crear Nuevo";
+    const dialogRef = this.dialog.open(FormularioUsuariosComponent);    
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-    });
+    });        
   }
 
 }
