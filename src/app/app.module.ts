@@ -43,6 +43,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LogoutComponent } from './Components/logout/logout.component';
 import { FormRegistroComponent } from './Forms/form-registro/form-registro.component';
 import { FormRecuperarPassComponent } from './Forms/form-recuperar-pass/form-recuperar-pass.component';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -70,7 +72,8 @@ import { FormRecuperarPassComponent } from './Forms/form-recuperar-pass/form-rec
     LogoutComponent,
     FormRegistroComponent,
     FormRecuperarPassComponent,
-    
+    SpinnerComponent,
+  
   ],
   imports: [
     MatTableModule,
@@ -96,6 +99,7 @@ import { FormRecuperarPassComponent } from './Forms/form-recuperar-pass/form-rec
     FormFinalizarCompraComponent,
     MatMenuModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

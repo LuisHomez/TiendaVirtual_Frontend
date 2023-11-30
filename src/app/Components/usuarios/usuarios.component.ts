@@ -15,7 +15,8 @@ import { FormsService } from 'src/app/services/forms.service';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
-    
+  
+  loading = true;
   displayedColumns: string[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -38,16 +39,26 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
     
     console.log("soy ngOnInit desde usuarios: ")
 
-    this.api.Get("Usuarios").then((res) => {
+    setTimeout(() => {
+      this.api.Get("Usuarios").then((res) => {
+        for (let index = 0; index < res.length; index++) {
+          this.loadTable([res[index]]);
+        }
 
-      for (let index = 0; index < res.length; index++) {
-        this.loadTable([res[index]])
-      }
+        this.dataSource.data = res;
+        this.loading = false; // Indica que la carga ha terminado
+        console.log(res);
+      });
+    }, 2000);
 
-      this.dataSource.data = res;
-
-      console.log(res);
-    })    
+    // this.api.Get("Usuarios").then((res) => {
+    //   for (let index = 0; index < res.length; index++) {
+    //     this.loadTable([res[index]])
+    //   }
+    //   this.dataSource.data = res;
+    //   this.loading = false;
+    //   console.log(res);
+    // })  
 
   }
   ngAfterViewInit(): void {

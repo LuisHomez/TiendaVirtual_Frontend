@@ -1,4 +1,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
+
+<div class="spinner-container" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<ng-container *ngIf="!loading">
+
 <div class="filter">
 <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -7,8 +14,7 @@
 </div>
   
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-
+    <table mat-table [dataSource]="dataSource" matSort>        
         <div matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
             <div *ngIf="column != 'Acciones'">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>{{column}}</th>
@@ -36,3 +42,5 @@
   </div>
   
   <button mat-raised-button color="primary" (click)="openDialog()">Registrar Usuario</button>
+
+</ng-container>
