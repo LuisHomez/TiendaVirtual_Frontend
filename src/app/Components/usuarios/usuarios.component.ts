@@ -26,6 +26,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource();
   }
 
+  //Esto es lo mismo que hay en opendialog
   nuevoRegistro(){
     this.formService.title = "Crear Nuevo";    
     const dialogRef = this.dialog.open(FormularioUsuariosComponent);
@@ -51,20 +52,13 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
       });
     }, 2000);
 
-    // this.api.Get("Usuarios").then((res) => {
-    //   for (let index = 0; index < res.length; index++) {
-    //     this.loadTable([res[index]])
-    //   }
-    //   this.dataSource.data = res;
-    //   this.loading = false;
-    //   console.log(res);
-    // })  
-
   }
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
   loadTable(data: any[]) {
     this.displayedColumns = [];
     if (data.length > 0) {

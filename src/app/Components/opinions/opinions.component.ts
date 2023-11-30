@@ -81,7 +81,7 @@ export class OpinionsComponent implements OnInit, AfterViewInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        this.api.Delete("Opinions", element.opinionId);
+        this.api.Delete("Opiniones", element.opinionId);
         Swal.fire('Registro eliminado', '', 'success')
         this.ngOnInit();
       } else if (result.isDenied) {
@@ -98,7 +98,6 @@ export class OpinionsComponent implements OnInit, AfterViewInit {
     console.log("El elemento recuperado: ", element);
     console.log("lo que quedo guardado en ", this.formsService.opinion);
     const dialogRef = this.dialog.open(FormularioOpinionsComponent);    
-    
     
   }
 }

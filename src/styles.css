@@ -20,3 +20,15 @@ table {
     width: 100%;
     margin-right: 15px;
   }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta según tus necesidades, esto centra verticalmente */
+  }
+  
+  .spinner {
+    width: 50px; /* Ajusta según tus necesidades */
+    height: 50px; /* Ajusta según tus necesidades */
+  }

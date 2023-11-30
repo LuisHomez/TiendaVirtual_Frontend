@@ -1,4 +1,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
+
+<div class="spinner-container" *ngIf="loading">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<ng-container *ngIf="!loading">
+
 <div class="filter">
 <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -17,8 +24,8 @@
         <div *ngIf="column == 'Acciones'">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>{{column}}</th>
             <td mat-cell *matCellDef="let element">
-            <a  class="option" onclick="alert('Hola soy editar')"> <i id="editar" class="fa-solid fa-pen-to-square"></i></a>
-            <a class="option"onclick="alert('Hola soy borrar')"> <i id="borrar" class="fa-solid fa-trash-can"></i></a>
+              <a  class="option" (click)="editar(element)"> <i id="editar" class="fa-solid fa-pen-to-square"></i></a>
+              <a class="option" (click)="borrar(element)"> <i id="borrar" class="fa-solid fa-trash-can"></i></a>
         </td>
         </div>
     </div>
@@ -35,4 +42,4 @@
   </div>
   <button mat-raised-button color="primary" (click)="openDialog()">Registrar Producto</button>
   
-  
+</ng-container>
